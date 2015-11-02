@@ -3,9 +3,19 @@
 
     </head>
     <body ng-controller="list">
-        <h1>
-            Olá! {{hue}}
-        </h1>
+        <h1>Lista de compras da Dona Salete</h1>
+        <div ng-repeat="item in lista">
+            {{item.item}} = {{item.quantidade}}
+        </div>
+        <form ng-submit="addItem()">
+            Produto: <input type="text" ng-model="newItem.item" name="text" />
+            <br>
+            Quantidade:
+                <input type="number" ng-model="newItem.quantidade" name="qtd">
+            <br>
+            <input type="submit" value="Mãe, compra pra mim?" />
+        </form>
+
         <script src="js/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/shoplist.js"></script>

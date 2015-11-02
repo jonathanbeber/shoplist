@@ -5,6 +5,7 @@ var path = require('path');
 
 var app = express();
 app.get('/', routes.index);
+app.get('/lista', routes.lista);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
