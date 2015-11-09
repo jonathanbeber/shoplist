@@ -8,7 +8,8 @@ var item = new Item(
 );
 
 item.save(
-  function(err, filme){
-    return console.log('Deu bosta: ' + err);
+  function(err, item){
+    if(err) return console.log('Deu bosta: ' + err);
+    return console.log('Incluso: ' + item );
   }
 );
