@@ -14,11 +14,21 @@ angular.module('shoplist')
         $scope.newItem = newItem();
 
         $scope.addItem = function() {
-            $http.post('/add', $scope.newItem)
-            .then(function successCallback(resposta){
-                $scope.lista.push(resposta.data);        
-                $scope.newItem = newItem();   
-            });
+            if($scope.newItem._id){
+                $http.put('/update', $scope.newItem)
+                .then(function successCallback(resposta){
+                    $scope.newItem = newItem();   
+                });
+            } else {
+                $http.post('/add', $scope.newItem) 
+                .then(function successCallback(resposta){
+                    $scope.lista.push(resposta.data);        
+                    $scope.newItem = newItem();   
+                });
+            }
+        }
+        $scope.loadItem = function(item){
+            $scope.newItem = item;
         }
     }
 );
