@@ -5,15 +5,20 @@ angular.module('shoplist')
                 $scope.lista = retorno.lista;
             }
         );
+        
         function newItem() {
             this.item = '';
             this.quantidade = 0;
         }
+        
         $scope.newItem = newItem();
 
         $scope.addItem = function() {
-            $scope.lista.push($scope.newItem);
-            $scope.newItem = newItem();
+            $http.post('/add', $scope.newItem)
+            .then(function successCallback(resposta){
+                $scope.lista.push(resposta.data);        
+                $scope.newItem = newItem();   
+            });
         }
     }
 );

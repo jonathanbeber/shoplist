@@ -13,3 +13,13 @@ exports.lista = function(req, res) {
 		}
 	);
 }
+exports.add = function(req, res) {
+	var item = new Item(req.body);
+	
+	item.save(
+		function(err, item){
+			if(err) return console.log('Erro ao salvar');
+			res.send(item);
+		}
+	);
+}
