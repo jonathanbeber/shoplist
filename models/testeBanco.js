@@ -2,8 +2,8 @@ var Item = require('./models/items');
 
 var item = new Item(
   {
-    item: 'labrador',
-    quantidade: 666
+    item: 'detergente',
+    quantidade: 2
   }
 );
 
