@@ -30,5 +30,13 @@ angular.module('shoplist')
         $scope.loadItem = function(item){
             $scope.newItem = item;
         }
+        $scope.removeItem = function(item){
+            $http.delete('/remove/' + item._id)
+            .then(function successCallback(resposta){
+                var index = $scope.lista.indexOf(item);
+			    $scope.lista.splice(index, 1);
+			    console.log(resposta);
+            });
+        }
     }
 );

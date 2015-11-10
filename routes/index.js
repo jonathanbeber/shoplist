@@ -34,3 +34,11 @@ exports.update = function(req, res) {
 		}
 	);
 }
+exports.delete = function(req, res) {
+	var id = req.params.id;
+	Item.findByIdAndRemove(id, function(err, item) {
+		if(err) return console.log('Nem vou falar nada: ' + err);
+		res.send('Item ' + item.item + ' removido com sucesso');
+	});
+	
+}
