@@ -21,6 +21,7 @@
     "url": "https://github.com/jonathanbeber/hackaton-ibm/issues"
   },
   "dependencies": {
+    "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "mongoose": "~4.2.4"

@@ -5,7 +5,7 @@
     <body ng-controller="list">
         <h1>Lista de compras da Dona Salete</h1>
         <div ng-repeat="item in lista">
-            {{item.item}} = {{item.quantidade}}
+            <a href="#" ng-click="loadItem(item)">{{item.item}} = {{item.quantidade}}</a>
         </div>
         <form ng-submit="addItem()">
             Produto: <input type="text" ng-model="newItem.item" name="text" />
