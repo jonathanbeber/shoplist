@@ -1,18 +1,15 @@
+var Item = require('../models/items');
+
 exports.index = function(req, res) {
 	res.render('index');
 }
 
 exports.lista = function(req, res) {
-	res.json({
-		lista:	[
-			{
-				item: 'Detergente',
-				quantidade: 10
-			},
-			{
-				item: 'Pano de louça',
-				quantidade: 2
-			}
-		]
-	});
+	Item.find(
+		{},
+		function(err, items){
+			if(err) return console.log('Erro: ' + err);
+			res.json({lista: items})
+		}
+	);
 }
